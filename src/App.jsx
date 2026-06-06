@@ -12,7 +12,7 @@ import "./App.scss";
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
-      <HashRouter basename="/Project-Management-Dashboard">
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Navigate to="/dashboard" replace />} />
