@@ -12,7 +12,7 @@ import "./App.scss";
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
-      <BrowserRouter>
+      <BrowserRouter basename="/Project-Management-Dashboard">
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Navigate to="/dashboard" replace />} />
@@ -20,8 +20,8 @@ function App() {
             <Route path="kanban" element={<KanbanBoard />} />
             <Route path="analytics" element={<Analytics />} />
             <Route path="settings" element={<Settings />} />
-            <Route path="*" element={<NotFound />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </DndProvider>
