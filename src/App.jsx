@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Layout from "./components/layout/Layout";
@@ -12,7 +12,7 @@ import "./App.scss";
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
-      <BrowserRouter basename="/Project-Management-Dashboard">
+      <HashRouter basename="/Project-Management-Dashboard">
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Navigate to="/dashboard" replace />} />
@@ -23,7 +23,7 @@ function App() {
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </DndProvider>
   );
 }
