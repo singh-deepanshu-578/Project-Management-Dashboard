@@ -1,0 +1,42 @@
+@use "variables" as *;
+
+@mixin flex($direction: row, $justify: flex-start, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin card {
+  background: var(--surface);
+  border-radius: $radius-lg;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  padding: $spacing-lg;
+}
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (max-width: 1280px) {
+      @content;
+    }
+  }
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,53 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.dashboard {
+  &__header {
+    margin-bottom: $spacing-xl;
+
+    h1 {
+      font-size: $font-2xl;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: $spacing-xs;
+    }
+
+    p {
+      color: var(--text-secondary);
+    }
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-lg;
+    margin-bottom: $spacing-xl;
+
+    @include responsive(lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include responsive(sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__section-title {
+    font-size: $font-xl;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: $spacing-lg;
+  }
+
+  &__projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-lg;
+
+    @include responsive(lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include responsive(sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

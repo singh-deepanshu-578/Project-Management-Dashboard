@@ -1,0 +1,202 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.settings {
+  &__header {
+    margin-bottom: $spacing-xl;
+    h1 {
+      font-size: $font-2xl;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: $spacing-xs;
+    }
+    p {
+      color: var(--text-secondary);
+    }
+  }
+
+  &__section {
+    margin-bottom: $spacing-xl;
+  }
+
+  &__section-title {
+    @include flex(row, flex-start, center);
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+    color: var(--text-primary);
+
+    h2 {
+      font-size: $font-lg;
+      font-weight: 600;
+    }
+    svg {
+      color: $primary;
+    }
+  }
+
+  &__card {
+    @include card;
+    @include flex(column, flex-start, stretch);
+    gap: $spacing-md;
+  }
+
+  &__profile {
+    @include flex(row, flex-start, center);
+    gap: $spacing-lg;
+
+    @include responsive(sm) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: $primary;
+    color: white;
+    @include flex(row, center, center);
+    font-size: $font-xl;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  &__profile-info {
+    @include flex(column, flex-start, stretch);
+    gap: $spacing-sm;
+    flex: 1;
+  }
+
+  &__input {
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid var(--border);
+    border-radius: $radius-md;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: $font-sm;
+    font-family: $font-family;
+    outline: none;
+    transition: $transition;
+    width: 100%;
+
+    &:focus {
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    }
+  }
+
+  &__btn {
+    padding: $spacing-sm $spacing-lg;
+    border-radius: $radius-md;
+    font-size: $font-sm;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: $transition;
+    align-self: flex-start;
+
+    &--primary {
+      background: $primary;
+      color: white;
+      @include flex(row, center, center);
+      gap: $spacing-xs;
+      &:hover {
+        background: $primary-dark;
+      }
+
+      &.saved {
+        background: #22c55e;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__row {
+    @include flex(row, space-between, center);
+    padding: $spacing-sm 0;
+    border-bottom: 1px solid var(--border);
+    gap: $spacing-lg;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__row-info {
+    flex: 1;
+  }
+
+  &__row-label {
+    font-size: $font-sm;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+
+  &__row-desc {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+
+  &__theme-toggle {
+    @include flex(row, center, center);
+    gap: $spacing-sm;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-md;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: $font-sm;
+    font-weight: 500;
+    cursor: pointer;
+    transition: $transition;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+    }
+  }
+
+  &__toggle {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    &-slider {
+      position: absolute;
+      inset: 0;
+      background: var(--border);
+      border-radius: 24px;
+      cursor: pointer;
+      transition: $transition;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        left: 3px;
+        top: 3px;
+        background: white;
+        border-radius: 50%;
+        transition: $transition;
+      }
+    }
+
+    input:checked + &-slider {
+      background: $primary;
+      &::before {
+        transform: translateX(20px);
+      }
+    }
+  }
+}

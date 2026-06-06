@@ -1,0 +1,33 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.kanban {
+  &__header {
+    margin-bottom: $spacing-xl;
+
+    h1 {
+      font-size: $font-2xl;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: $spacing-xs;
+    }
+    p {
+      color: var(--text-secondary);
+    }
+  }
+
+  &__board {
+    display: flex;
+    gap: $spacing-lg;
+    overflow-x: auto;
+    padding-bottom: $spacing-lg;
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $primary;
+      border-radius: 3px;
+    }
+  }
+}

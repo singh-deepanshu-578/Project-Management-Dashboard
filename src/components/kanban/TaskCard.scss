@@ -1,0 +1,102 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.task-card {
+  @include card;
+  padding: $spacing-md;
+  cursor: grab;
+  transition: $transition;
+  margin-bottom: $spacing-sm;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &.dragging {
+    opacity: 0.4;
+    transform: rotate(2deg) scale(1.02);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+
+  &__header {
+    @include flex(row, space-between, center);
+    margin-bottom: $spacing-sm;
+  }
+
+  &__priority {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: $radius-xl;
+    text-transform: capitalize;
+  }
+
+  &__actions {
+    @include flex(row, center, center);
+    gap: 2px;
+    opacity: 0;
+    transition: $transition;
+  }
+
+  &:hover &__actions {
+    opacity: 1;
+  }
+
+  &__edit,
+  &__delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    @include flex(row, center, center);
+    padding: 2px;
+    border-radius: $radius-sm;
+    transition: $transition;
+  }
+
+  &__edit:hover {
+    color: $primary;
+  }
+  &__delete:hover {
+    color: #ef4444;
+  }
+
+  &__title {
+    font-size: $font-sm;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: $spacing-md;
+    line-height: 1.4;
+  }
+
+  &__footer {
+    @include flex(row, space-between, center);
+  }
+
+  &__assignee {
+    @include flex(row, flex-start, center);
+    gap: $spacing-xs;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+
+  &__avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: $primary;
+    color: white;
+    @include flex(row, center, center);
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+
+  &__due {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+}

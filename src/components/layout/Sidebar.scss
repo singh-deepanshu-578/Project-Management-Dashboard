@@ -1,0 +1,79 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.sidebar {
+  height: 100vh;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  transition: $transition;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+
+  &.open {
+    width: 240px;
+  }
+  &.closed {
+    width: 64px;
+  }
+
+  &__logo {
+    @include flex(row, flex-start, center);
+    padding: $spacing-lg $spacing-md;
+    gap: $spacing-sm;
+    border-bottom: 1px solid var(--border);
+    min-height: 64px;
+
+    &-icon {
+      font-size: 1.5rem;
+    }
+    &-text {
+      font-size: $font-lg;
+      font-weight: 700;
+      color: $primary;
+      white-space: nowrap;
+    }
+  }
+
+  &__nav {
+    @include flex(column, flex-start, stretch);
+    padding: $spacing-md 0;
+    gap: $spacing-xs;
+    flex: 1;
+
+    &-item {
+      @include flex(row, flex-start, center);
+      gap: $spacing-md;
+      padding: $spacing-sm $spacing-md;
+      margin: 0 $spacing-sm;
+      border-radius: $radius-md;
+      color: var(--text-secondary);
+      transition: $transition;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba($primary, 0.1);
+        color: $primary;
+      }
+
+      &.active {
+        background: rgba($primary, 0.15);
+        color: $primary;
+        font-weight: 600;
+      }
+    }
+
+    &-icon {
+      @include flex(row, center, center);
+      min-width: 24px;
+    }
+
+    &-label {
+      white-space: nowrap;
+      font-size: $font-sm;
+    }
+  }
+}

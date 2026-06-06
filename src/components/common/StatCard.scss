@@ -1,0 +1,51 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.stat-card {
+  @include card;
+  @include flex(row, flex-start, center);
+  gap: $spacing-lg;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+
+  &__icon {
+    @include flex(row, center, center);
+    width: 56px;
+    height: 56px;
+    border-radius: $radius-lg;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: $font-sm;
+    color: var(--text-secondary);
+    margin-bottom: $spacing-xs;
+  }
+
+  &__value {
+    font-size: $font-2xl;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  &__change {
+    font-size: $font-sm;
+    margin-top: $spacing-xs;
+
+    &.positive {
+      color: #22c55e;
+    }
+    &.negative {
+      color: #ef4444;
+    }
+  }
+}

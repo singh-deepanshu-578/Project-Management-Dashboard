@@ -1,0 +1,51 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.notfound {
+  @include flex(row, center, center);
+  min-height: calc(100vh - 64px);
+
+  &__content {
+    @include flex(column, center, center);
+    text-align: center;
+    gap: $spacing-md;
+  }
+
+  &__code {
+    font-size: 8rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, $primary, $secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+  }
+
+  &__title {
+    font-size: $font-2xl;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  &__desc {
+    color: var(--text-secondary);
+    font-size: $font-md;
+  }
+
+  &__btn {
+    margin-top: $spacing-md;
+    padding: $spacing-sm $spacing-xl;
+    background: $primary;
+    color: white;
+    border: none;
+    border-radius: $radius-md;
+    font-size: $font-md;
+    font-weight: 500;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background: $primary-dark;
+      transform: translateY(-2px);
+    }
+  }
+}

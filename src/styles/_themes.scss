@@ -1,0 +1,19 @@
+@use "variables" as *;
+
+[data-theme="light"] {
+  --bg: #{$bg-light};
+  --surface: #{$surface-light};
+  --text-primary: #{$text-primary-light};
+  --text-secondary: #{$text-secondary-light};
+  --border: #{$border-light};
+  --shadow: #{$shadow-md};
+}
+
+[data-theme="dark"] {
+  --bg: #{$bg-dark};
+  --surface: #{$surface-dark};
+  --text-primary: #{$text-primary-dark};
+  --text-secondary: #{$text-secondary-dark};
+  --border: #{$border-dark};
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}

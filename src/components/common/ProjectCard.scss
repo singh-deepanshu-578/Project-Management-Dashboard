@@ -1,0 +1,72 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.project-card {
+  @include card;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+
+  &__header {
+    @include flex(row, space-between, center);
+    margin-bottom: $spacing-md;
+  }
+
+  &__name {
+    font-size: $font-md;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  &__progress-text {
+    font-size: $font-sm;
+    font-weight: 600;
+    color: $primary;
+  }
+
+  &__progress-bar {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: $spacing-md;
+  }
+
+  &__progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, $primary, $secondary);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+  }
+
+  &__footer {
+    @include flex(row, space-between, center);
+  }
+
+  &__team {
+    position: relative;
+    height: 32px;
+    width: 80px;
+  }
+
+  &__avatar {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $primary;
+    color: white;
+    @include flex(row, center, center);
+    font-size: $font-sm;
+    font-weight: 600;
+    border: 2px solid var(--surface);
+  }
+
+  &__members {
+    font-size: $font-sm;
+    color: var(--text-secondary);
+  }
+}

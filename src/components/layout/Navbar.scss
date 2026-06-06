@@ -1,0 +1,64 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.navbar {
+  @include flex(row, space-between, center);
+  height: 64px;
+  padding: 0 $spacing-lg;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 99;
+  transition: $transition;
+
+  &__menu-btn,
+  &__icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+    @include flex(row, center, center);
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-md;
+    transition: $transition;
+
+    &:hover {
+      background: rgba($primary, 0.1);
+      color: $primary;
+    }
+  }
+
+  &__title {
+    font-size: $font-lg;
+    font-weight: 600;
+    color: var(--text-primary);
+
+    @include responsive(md) {
+      display: none;
+    }
+  }
+
+  &__actions {
+    @include flex(row, flex-end, center);
+    gap: $spacing-sm;
+  }
+  &__notif-wrap {
+    position: relative;
+  }
+
+  &__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: $primary;
+    color: white;
+    @include flex(row, center, center);
+    font-size: $font-sm;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}

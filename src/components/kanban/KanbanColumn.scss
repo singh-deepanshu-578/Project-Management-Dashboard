@@ -1,0 +1,72 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.kanban-column {
+  background: var(--bg);
+  border-radius: $radius-lg;
+  border: 2px solid var(--border);
+  padding: $spacing-md;
+  min-width: 280px;
+  flex: 1;
+  transition: $transition;
+  min-height: 500px;
+
+  &.over {
+    border-color: $primary;
+    background: rgba($primary, 0.03);
+  }
+
+  &__header {
+    @include flex(row, space-between, center);
+    margin-bottom: $spacing-md;
+  }
+
+  &__title-wrap {
+    @include flex(row, flex-start, center);
+    gap: $spacing-sm;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  &__title {
+    font-size: $font-sm;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  &__count {
+    background: var(--border);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: $radius-xl;
+  }
+
+  &__add {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    @include flex(row, center, center);
+    width: 28px;
+    height: 28px;
+    border-radius: $radius-sm;
+    transition: $transition;
+
+    &:hover {
+      background: rgba($primary, 0.1);
+      color: $primary;
+    }
+  }
+
+  &__tasks {
+    @include flex(column, flex-start, stretch);
+    gap: $spacing-sm;
+  }
+}

@@ -1,0 +1,116 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  @include flex(row, center, center);
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: var(--surface);
+  border-radius: $radius-xl;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: $shadow-lg;
+  border: 1px solid var(--border);
+
+  &__header {
+    @include flex(row, space-between, center);
+    padding: $spacing-lg;
+    border-bottom: 1px solid var(--border);
+
+    h3 {
+      font-size: $font-lg;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    @include flex(row, center, center);
+    width: 32px;
+    height: 32px;
+    border-radius: $radius-sm;
+    transition: $transition;
+    &:hover {
+      background: var(--border);
+    }
+  }
+
+  &__body {
+    padding: $spacing-lg;
+    @include flex(column, flex-start, stretch);
+    gap: $spacing-md;
+  }
+
+  &__field {
+    @include flex(column, flex-start, stretch);
+    gap: $spacing-xs;
+
+    label {
+      font-size: $font-sm;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    input,
+    select {
+      padding: $spacing-sm $spacing-md;
+      border: 1px solid var(--border);
+      border-radius: $radius-md;
+      background: var(--bg);
+      color: var(--text-primary);
+      font-size: $font-sm;
+      font-family: $font-family;
+      outline: none;
+      transition: $transition;
+
+      &:focus {
+        border-color: $primary;
+        box-shadow: 0 0 0 3px rgba($primary, 0.1);
+      }
+    }
+  }
+
+  &__footer {
+    @include flex(row, flex-end, center);
+    gap: $spacing-sm;
+    padding: $spacing-lg;
+    border-top: 1px solid var(--border);
+  }
+
+  &__btn {
+    padding: $spacing-sm $spacing-lg;
+    border-radius: $radius-md;
+    font-size: $font-sm;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: $transition;
+
+    &--cancel {
+      background: var(--border);
+      color: var(--text-primary);
+      &:hover {
+        background: var(--text-secondary);
+        color: white;
+      }
+    }
+
+    &--submit {
+      background: $primary;
+      color: white;
+      &:hover {
+        background: $primary-dark;
+      }
+    }
+  }
+}

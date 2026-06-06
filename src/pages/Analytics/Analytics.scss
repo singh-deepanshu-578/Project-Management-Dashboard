@@ -1,0 +1,42 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.analytics {
+  &__header {
+    margin-bottom: $spacing-xl;
+    h1 {
+      font-size: $font-2xl;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: $spacing-xs;
+    }
+    p {
+      color: var(--text-secondary);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
+
+    @include responsive(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    @include card;
+
+    &--full {
+      grid-column: 1 / -1;
+    }
+
+    h2 {
+      font-size: $font-lg;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: $spacing-lg;
+    }
+  }
+}

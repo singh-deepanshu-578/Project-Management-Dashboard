@@ -1,0 +1,126 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.notif-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 360px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+  z-index: 200;
+  overflow: hidden;
+
+  @include responsive(sm) {
+    width: calc(100vw - 32px);
+    right: -16px;
+  }
+
+  &__header {
+    @include flex(row, space-between, center);
+    padding: $spacing-md $spacing-lg;
+    border-bottom: 1px solid var(--border);
+
+    h3 {
+      font-size: $font-md;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+  }
+
+  &__clear {
+    @include flex(row, center, center);
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: $font-sm;
+    transition: $transition;
+    padding: 4px 8px;
+    border-radius: $radius-sm;
+
+    &:hover {
+      color: #ef4444;
+      background: rgba(239, 68, 68, 0.1);
+    }
+  }
+
+  &__list {
+    max-height: 380px;
+    overflow-y: auto;
+  }
+
+  &__empty {
+    @include flex(column, center, center);
+    gap: $spacing-sm;
+    padding: $spacing-xl;
+    color: var(--text-secondary);
+
+    svg {
+      font-size: 2.5rem;
+      color: #22c55e;
+    }
+    p {
+      font-size: $font-sm;
+    }
+  }
+
+  &__item {
+    @include flex(row, flex-start, flex-start);
+    gap: $spacing-sm;
+    padding: $spacing-md $spacing-lg;
+    border-bottom: 1px solid var(--border);
+    transition: $transition;
+
+    &:last-child {
+      border-bottom: none;
+    }
+    &:hover {
+      background: rgba($primary, 0.03);
+    }
+
+    &.unread {
+      background: rgba($primary, 0.04);
+    }
+    &.read {
+      opacity: 0.6;
+    }
+  }
+
+  &__icon {
+    @include flex(row, center, center);
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__message {
+    font-size: $font-sm;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+
+  &__mark {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    @include flex(row, center, center);
+    width: 28px;
+    height: 28px;
+    border-radius: $radius-sm;
+    flex-shrink: 0;
+    transition: $transition;
+
+    &:hover {
+      background: rgba($primary, 0.1);
+      color: $primary;
+    }
+  }
+}
