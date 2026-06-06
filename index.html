@@ -2,21 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/Project-Management-Dashboard/favicon.ico"
-    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ProManage - Project Management Dashboard</title>
-    <script type="text/javascript">
-      (function () {
-        var redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect);
-        }
-      })();
+    <script>
+      if (!window.location.hash || window.location.hash === "#") {
+        window.location.replace(
+          window.location.origin + window.location.pathname + "#/dashboard",
+        );
+      }
     </script>
     <script type="module" crossorigin src="/Project-Management-Dashboard/assets/index-BhSlPZGV.js"></script>
     <link rel="modulepreload" crossorigin href="/Project-Management-Dashboard/assets/rolldown-runtime-QTnfLwEv.js">
