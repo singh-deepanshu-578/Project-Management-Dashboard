@@ -3,7 +3,9 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: globalThis.process?.env.RAILWAY_PROJECT_ID
+  base:
+    globalThis.process?.env.RAILWAY_PROJECT_ID ||
+    globalThis.process?.env.VERCEL
     ? "/"
     : "/Project-Management-Dashboard/",
   build: {

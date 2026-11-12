@@ -23,6 +23,15 @@ If you are developing a production application, we recommend using TypeScript wi
 
 The app listens on Railway's `PORT` environment variable and supports client-side routes such as `/projects` and `/settings`.
 
+## Deploy on Vercel
+
+1. Push this repository to GitHub.
+2. In [Vercel](https://vercel.com), choose **Add New Project** and import this repository.
+3. Keep the detected Vite settings and click **Deploy**.
+4. Open the generated Vercel domain.
+
+Vercel uses `vercel.json` to build the `dist` directory and serve the client-side application routes.
+
 ## Local development
 
 ```bash
