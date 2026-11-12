@@ -14,3 +14,18 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Deploy on Railway
+
+1. Push this repository to GitHub.
+2. In [Railway](https://railway.app), create a project and choose **Deploy from GitHub repo**.
+3. Select this repository and deploy it. Railway will use `railway.json` to run the build and start commands.
+4. Open the generated Railway domain from the service's **Networking** settings.
+
+The app listens on Railway's `PORT` environment variable and supports client-side routes such as `/projects` and `/settings`.
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```

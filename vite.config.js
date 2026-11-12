@@ -2,8 +2,10 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  base: "/Project-Management-Dashboard/",
   plugins: [react()],
+  base: globalThis.process?.env.RAILWAY_PROJECT_ID
+    ? "/"
+    : "/Project-Management-Dashboard/",
   build: {
     chunkSizeWarningLimit: 600,
     rollupOptions: {

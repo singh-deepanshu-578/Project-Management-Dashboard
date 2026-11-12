@@ -10,13 +10,13 @@ import "./styles/main.scss";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider>
-      <ProfileProvider>
-        <NotificationProvider>
-          <ProjectProvider>
+      <NotificationProvider>
+        <ProjectProvider>
+          <ProfileProvider>
             <App />
-          </ProjectProvider>
-        </NotificationProvider>
-      </ProfileProvider>
+          </ProfileProvider>
+        </ProjectProvider>
+      </NotificationProvider>
     </ThemeProvider>
   </React.StrictMode>,
 );
